@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AI Color Analyst</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/vibrant.min.js"></script>
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/upload.css" rel="stylesheet">
+</head>
+
+<body class="starter-page-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" alt="">
+        <h1 class="sitename">AIColorAnalyst</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home<br></a></li>
+          <li><a href="index.html">About</a></li>
+          <li><a href="index.html">Services</a></li>
+          <li><a href="index.html">Team</a></li>
+        
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      
+      <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Upload Page</li>
+          </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Starter Section Section -->
+    <section id="starter-section" class="starter-section section">
+
+
+
+
+    </section><!-- /Starter Section Section -->
+
+
+  </main>
+<!-- 
+  <section>
+    <form action="#" method="POST" enctype="multipart/form-data" id="upload-form">
+        <div class="container-upload">
+            <div class="dropzone-wrapper">
+                <input type="file" name="img_logo" class="dropzone" id="img-upload" accept="image/*">
+                <div class="dropzone-desc" id="dropzone-desc">
+                    <i class="bi bi-cloud-upload"></i>
+                    <p>Select a file or drag here</p>
+                </div>
+                <div class="preview-zone hidden">
+                    <img src="" alt="Image Preview" class="img-preview" />
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary mt-3" id="upload-button">Upload</button>
+            <button type="button" class="btn btn-secondary mt-3" id="reset-button">Reset</button>
+            <div id="color-sample" style="margin-top: 20px;"></div> 
+        </div>
+    </form>
+  </section> -->
+
+  <div class="container">
+    <header>
+        <h1>Fashion Color Palette Extractor</h1>
+        <p class="subtitle">Upload an image to extract colors and get AI-powered fashion suggestions</p>
+    </header>
+    
+    <div class="upload-section">
+        <input type="file" id="imageInput" accept="image/*">
+        <label for="imageInput" class="upload-button">Choose Image</label>
+        <button id="resetButton" class="reset-button">Reset</button>
+    </div>
+    
+    <div class="main-content">
+        <div class="preview-section">
+            <h2>Image Preview</h2>
+            <div class="image-container">
+                <img id="imagePreview" style="display: none;">
+            </div>
+        </div>
+
+        <div class="colors-section">
+            <div class="color-result">
+                <h2>Dominant Color</h2>
+                <div class="dominant-color-wrapper">
+                    <div id="dominantColor" class="color-box"></div>
+                    <div id="dominantColorHex" class="color-hex"></div>
+                </div>
+            </div>
+
+            <div class="palette-result">
+                <h2>Color Palette</h2>
+                <div class="color-palette-explanation">
+                    <p>These colors will be used to generate your fashion suggestions</p>
+                </div>
+                <div id="colorPalette" class="palette-container"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="fashion-section" >
+        <h2>Fashion Suggestions</h2>
+        <p class="section-description">Get personalized outfit ideas based on your color palette</p>
+        
+        <div class="season-selector">
+            <div class="season-label">
+                <label for="seasonSelect">Choose a season:</label>
+            </div>
+            <div class="season-controls">
+                <select id="seasonSelect">
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
+                    <option value="fall">Fall</option>
+                    <option value="winter">Winter</option>
+                </select>
+                <button id="getFashionSuggestions" class="suggestion-button">Get Fashion Suggestions</button>
+            </div>
+        </div>
+        
+        <div id="fashionSuggestions" class="suggestions-container">
+            <div class="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generating fashion suggestions based on your color palette...</p>
+            </div>
+            <div class="suggestions-content"></div>
+        </div>
+    </div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+<script src="script.js"></script>
+
+
+
+  
+  <script src="assets/js/test.js"></script>
+  <footer id="footer" class="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6">
+            <h4>Join Our Newsletter</h4>
+            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/test.js"></script>
+
+
+</body>
+
+</html>

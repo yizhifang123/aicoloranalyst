@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle reset button click
     resetButton.addEventListener('click', resetForm);
 
+    
     async function getFashionSuggestions() {
         if (extractedColors.length === 0) {
             alert('Please upload an image first to extract colors.');

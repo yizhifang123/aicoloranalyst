@@ -1,5 +1,4 @@
 const API_URL = "<https://api.openai.com/v1/chat/completions>";
-// api key here;
 document.addEventListener('DOMContentLoaded', () => {
     const imageInput = document.getElementById('imageInput');
     const imagePreview = document.getElementById('imagePreview');
@@ -141,13 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const colorsList = extractedColors.join(', ');
             const prompt = `Based on this color palette: ${colorsList}, suggest outfit combinations and clothing items that would work well for ${currentSeason} season, considering current fashion trends. Include specific items like tops, bottoms, accessories, and shoes.`;
-            
-            // Make API request to OpenAI
+
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // 'Authorization': api key
                 },
                 body: JSON.stringify({
                     model: "gpt-3.5-turbo",
